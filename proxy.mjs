@@ -3,6 +3,12 @@ import { initializeAuthProxy } from '@propelauth/auth-proxy'
 // Retrieve secrets from environment variables
 const authUrl = process.env.AUTH_URL;
 const apiKey = process.env.API_KEY;
+const urlWhereYourProxyIsRunning = process.env.URL_WHERE_PROXY_IS_RUNNING;
+const proxyPort =process.env.PROXY_PORT;
+const targethost= process.env.TARGET_HOST;
+const targetport = process.env.TARGET_PORT;
+const targetprotocol = process.env.TARGET_PROTOCOL;
+
 
 if (!authUrl || !apiKey) {
     throw new Error("AUTH_URL and API_KEY environment variables must be set");
@@ -12,11 +18,11 @@ if (!authUrl || !apiKey) {
 await initializeAuthProxy({
     authUrl: authUrl,
     integrationApiKey: apiKey,
-    proxyPort: 8000,
-    urlWhereYourProxyIsRunning: 'http://localhost:8000',
+    proxyPort: proxyPort,
+    urlWhereYourProxyIsRunning: urlWhereYourProxyIsRunning,
     target: {
-        host: 'localhost',
-        port: 8501,
-        protocol: 'http:'
+        host: targethost,
+        port: targetport,
+        protocol: targetprotocol,
     },
 });

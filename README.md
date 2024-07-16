@@ -16,7 +16,5 @@ Save the settings and restart the web app.
 az webapp config appsettings set --name <YourAppName> --resource-group <YourResourceGroup> --settings AUTH_URL=<YourAuthUrl> API_KEY=<YourApiKey>
 ```
 
-
-
 ## Reference
 - https://www.propelauth.com/post/streamlit-authentication
